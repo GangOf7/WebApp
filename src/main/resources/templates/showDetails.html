@@ -1,0 +1,772 @@
+<!doctype html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Data Table | Adminpro - Admin Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="/img/fld.png">
+    <!-- Google Fonts
+		============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i,800" rel="stylesheet">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <!-- adminpro icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="/css/adminpro-custon-icon.css">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="/css/meanmenu.min.css">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="/css/animate.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="/css/data-table/bootstrap-table.css">
+    <link rel="stylesheet" href="/css/data-table/bootstrap-editable.css">
+    <!-- modals CSS
+		============================================ -->
+    <link rel="stylesheet" href="/css/modals.css">
+    <!-- tabs CSS
+		============================================ -->
+    <link rel="stylesheet" href="/css/tabs.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="/css/normalize.css">
+    <!-- charts CSS
+		============================================ -->
+    <link rel="stylesheet" href="/css/c3.min.css">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="/css/responsive.css">
+    <!-- modernizr JS
+		============================================ -->
+    <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
+     <!-- Sweetalert2
+		============================================ -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    
+    
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+     
+     <script>
+		var _nextId = 1;
+		var _activeId = 0;var _GUID = 0;var _activeId = 0;var _MAC_ID = 0;var _Device_Name = 0;var _Country = 0;var _State = 0;var _Area = 0;var _Latitude = 0;var _Longitude = 0;
+		var _Status = 0;var _Last_Updated_By = 0;var _Last_Updated_On = 0;
+		var _OnChangeAppDtatatablePopulate = 0;
+	</script>
+     <script>
+     function deleteConfermation(ctl){
+    	 var x = ctl.parentNode.parentNode.rowIndex;
+    	 var tab = document.getElementById('table');
+    	 _activeId = tab.rows[x].cells[1].innerHTML;
+    	 Swal.fire({
+    		  title: 'Are you sure?',
+    		  text: "You won't be able to revert this!",
+    		  icon: 'warning',
+    		  showCancelButton: true,
+    		  confirmButtonColor: '#3085d6',
+    		  cancelButtonColor: '#d33',
+    		  confirmButtonText: 'Yes, delete it!'
+    		}).then((result) => {
+    		  if (result.value) {
+    			  var search = {}
+   		    	  search["Id"] = _activeId;
+    			  $.ajax({
+   		 	        type: "POST",
+   		 	        contentType: "application/json",
+   		 	        url: "/admin/deleteDeviceForUser",
+   		 	        data: JSON.stringify(search),
+   		 	        dataType: 'json',
+   		 	        cache: false,
+   		 	        timeout: 600000,
+   		 	        success: function (data) {
+   		 	        Swal.fire(
+   		    		      'Deleted!',
+   		    		      'Device has been deleted.',
+   		    		      'success'
+   		    		    );
+   		 	        	location.reload();
+   		 	        },
+   		 	        error: function (e) {
+   		 	        	Swal.fire({
+   		 	        		  icon: 'error',
+   		 	        		  title: 'Oops...',
+   		 	        		  text: 'Something went very wrong!',
+   		 	        		  footer: '<a href>Why do I have this issue?</a>'
+   		 	        		})
+   		 	        }
+   		 	    });
+    		  }
+    		})
+     }
+     // update
+     function populateModalEdit(ctl) {
+    	 var states_listValue=$('#states')[0].length;
+    	 var area_listValue=$('#area-city')[0].length;
+    	 if(states_listValue > 0 || area_listValue > 0){
+    		 $('#states').empty(); $('#area-city').empty();
+    	 }
+    	 if(!$("#table tbody").length == 0){
+    		 $("#WarningModalhdbgcl").modal('show');
+    		 _row = $(ctl).parents("tr"); 
+
+ 			var cols = _row.children("td");	 
+ 			
+ 			 var x = ctl.parentNode.parentNode.rowIndex;
+ 			 var tab = document.getElementById('table');
+ 			 _activeId = tab.rows[x].cells[1].innerHTML;
+ 			_GUID = tab.rows[x].cells[2].innerHTML;
+ 			_MAC_ID = tab.rows[x].cells[3].innerHTML;
+ 			_Device_Name = tab.rows[x].cells[4].innerHTML;
+ 			_Country = tab.rows[x].cells[5].innerHTML;
+ 			_State = tab.rows[x].cells[6].innerHTML;
+ 			_Area = tab.rows[x].cells[7].innerHTML;
+ 			_Latitude = tab.rows[x].cells[8].innerHTML;
+ 			_Longitude = tab.rows[x].cells[9].innerHTML;
+ 			_Status = tab.rows[x].cells[10].innerHTML;
+ 			_Last_Updated_By = tab.rows[x].cells[11].innerHTML;
+ 			_Last_Updated_On = tab.rows[x].cells[12].innerHTML;
+ 			 //console.log(_activeId);
+ 			document.getElementById("Device_Id").value = _Device_Name;
+			let count = $('#country');let stat = $('#states');let areadd = $('#area-city');let stats = $('#Status');
+
+ 			$("#country").val(_Country); count.append($('<option></option>').attr('value', _Country).text(_Country)); stat.append($('<option></option>').attr('value', _State).text(_State));
+ 			areadd.append($('<option></option>').attr('value', _Area).text(_Area));
+ 			
+ 			// Update
+ 		     $("#updatespecific").click(function() {
+ 		    	 //console.log("update value");
+ 		    	 var search = {}
+ 		    	search["Id"] = _activeId;
+ 		  	    search["GUID"] = _GUID;
+ 		    	search["MAC_Id"] = _MAC_ID;
+ 		    	search["Device_Id"] = $("#Device_Id").val();
+ 		    	search["Status"] = $("#Status").val();
+ 		    	search["country"] = $("#country").val();
+ 		    	search["owner"] = _Last_Updated_By;
+ 		    	search["states"] = $("#states").val();
+ 		    	search["area-city"] = $("#area-city").val();
+ 		    	search["latitude"] = _Latitude;
+ 		    	search["longtitude"] = _Longitude;
+ 		    	
+ 		    	$("#updatespecific").prop("disabled", true);
+ 		    	
+ 		    	$.ajax({
+ 		 	        type: "POST",
+ 		 	        contentType: "application/json",
+ 		 	        url: "/admin/updateDeviceForUser",
+ 		 	        data: JSON.stringify(search),
+ 		 	        dataType: 'json',
+ 		 	        cache: false,
+ 		 	        timeout: 600000,
+ 		 	        success: function (data) {
+ 		 	        	Swal.fire(
+ 		 	        			  'Ypeeeeeeeee!',
+ 		 	        			  'Device details updated',
+ 		 	        			  'success'
+ 		 	        			)
+ 		 		     	$("#updatespecific").prop("disabled", false);
+ 		 	        	$('#WarningModalhdbgcl').modal('toggle');
+ 		 	        	setTimeout(
+ 		   	        			  function() 
+ 		   	        			  {
+ 		   	        				 location.reload(); 
+ 		   	        			 }, 2000);
+ 		 	        	location.reload();
+ 		 	        },
+ 		 	        error: function (e) {
+ 		 	        	Swal.fire({
+ 		 	        		  icon: 'error',
+ 		 	        		  title: 'Oops...',
+ 		 	        		  text: 'Something went very wrong!',
+ 		 	        		  footer: '<a href>Why do I have this issue?</a>'
+ 		 	        		})
+ 		 	        }
+ 		 	    });
+ 		     });
+ 		    $("#cancl").click(function() {
+ 		    	$('#WarningModalhdbgcl').modal('toggle');
+ 		    });
+ 			
+    	 }
+    }	
+     // Country
+     $( document ).ready(function() {
+    	 const url = 'https://raw.githubusercontent.com/SohamRoyNoel/CountryDataHost/master/countries.json';
+    	 let count = $('#country')
+         $.getJSON(url, function (data) {
+	           $.each(data, function (key, entry) {
+	        	   count.append($('<option></option>').attr('value', entry.name).text(entry.name));
+	           })
+         }); 
+     });
+  // Render data to States
+     $(document).on('click', '#country', function() {
+    	 
+         var countryName = $( "#country" ).val();
+         let dropdown = $('#states');
+         const url = 'https://raw.githubusercontent.com/SohamRoyNoel/CountryDataHost/master/countries.json';
+         $.getJSON(url, function (data) {
+             $.each(data, function (key, entry) {
+               if(entry.name == countryName){
+             	  var state = entry.states;
+             	  $('#states').empty();
+             	  $.each(state, function(i, item) {
+             		    dropdown.append($('<option></option>').attr('value', item.name).text(item.name));
+             		});
+               }
+             })
+           });
+     });
+  // Render data to Area
+     $(document).on('click', '#states', function() {
+     	var countryName = $( "#country" ).val();
+         var stateName = $( "#states" ).val();
+         
+         let dropdown = $('#area-city');
+         
+         const url = 'https://raw.githubusercontent.com/SohamRoyNoel/CountryDataHost/master/countries.json';
+         
+         $.getJSON(url, function (data) {
+             $.each(data, function (key, entry) {
+               if(entry.name == countryName){
+             	  var state = entry.states;
+             	  //console.log("State : " + state);
+             	  $.each(state, function(i, item) {
+             		    if(item.name == stateName){
+             		      var cities = item.cities;
+             		      $('#area-city').empty();
+             		      dropdown.append($('<option></option>').attr('value', 0).text("Select Area"));
+             		      $.each(cities, function(i1, item1) {
+             		    	  	
+                     		    dropdown.append($('<option></option>').attr('value', item1.name).text(item1.name));
+                     		});
+             		    }
+             		});
+               }
+             })
+           });
+     });
+  // Render data to Latitude & Longtitude
+  $( document ).ready(function() {
+     $(document).on('change', '#area-city', function() {
+      	
+  	   var countryName = $( "#country" ).val();
+         var stateName = $( "#states" ).val();
+         var city = $('#area-city').val();
+         
+         const url = 'https://raw.githubusercontent.com/SohamRoyNoel/CountryDataHost/master/countries.json';
+         
+         $.getJSON(url, function (data) {
+             $.each(data, function (key, entry) {
+               if(entry.name == countryName){
+             	  var state = entry.states;
+             	  //console.log("State : " + state);
+             	  $.each(state, function(i, item) {
+             		    if(item.name == stateName){
+             		      var cities = item.cities;
+             		      $('#latitude').val("");
+             		      $('#longtitude').val("");
+             		      $.each(cities, function(i1, item1) {
+             		    	  if(item1.name==city){
+             		    		_Latitude = item1.latitude;
+             		    		_Longitude = item1.longitude;
+             		    	  }
+                     		});
+             		    }
+             		});
+               }
+             })
+           })
+      });
+  })
+     
+    </script>
+    
+</head>
+
+<body class="materialdesign">
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- Header top area start-->
+    <div class="wrapper-pro">
+        <div class="left-sidebar-pro">
+             <nav id="sidebar">
+                <div class="sidebar-header">
+                    <a href="#"><img src="img/message/1.jpg" alt="" />
+                    </a>
+                    <h3>Flying Dutchman</h3>
+                    <strong>AP+</strong>
+                </div>
+                <div class="left-custom-menu-adp-wrap">
+                    <ul class="nav navbar-nav left-sidebar-menu-pro">
+                        <li class="nav-item">
+                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-home"></i> <span class="mini-dn">Home</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                            <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                <a href="dashboard.html" class="dropdown-item">Home</a>
+                                <a href="/dutchman/dashboard" class="dropdown-item">Dashboard</a>
+                                <a href="analytics.html" class="dropdown-item">Analytics</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-cog"></i> <span class="mini-dn">Device</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                            <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                <a href="/admin/addNew" class="dropdown-item">Add Device</a>
+                                <a href="/admin/details" class="dropdown-item">Device Details</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-users"></i> <span class="mini-dn">Users</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                            <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                <a href="/admin/addUser" class="dropdown-item">Add User</a>
+                                <a href="/admin/showUser" class="dropdown-item">User Details</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-flask"></i> <span class="mini-dn">Interface</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                            <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                <a href="google-map.html" class="dropdown-item">Google Map</a>
+                                <a href="data-maps.html" class="dropdown-item">Data Maps</a>
+                                <a href="pdf-viewer.html" class="dropdown-item">Pdf Viewer</a>
+                                <a href="x-editable.html" class="dropdown-item">X-Editable</a>
+                                <a href="code-editor.html" class="dropdown-item">Code Editor</a>
+                                <a href="tree-view.html" class="dropdown-item">Tree View</a>
+                                <a href="preloader.html" class="dropdown-item">Preloader</a>
+                                <a href="images-cropper.html" class="dropdown-item">Images Cropper</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-phone" aria-hidden="true"></i> <span class="mini-dn">Services</span> <span class="indicator-right-menu mini-dn"></span></a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-tachometer" aria-hidden="true"></i> <span class="mini-dn">Installation</span> <span class="indicator-right-menu mini-dn"></span></a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- Header top area start-->
+        <div class="content-inner-all">
+            <div class="header-top-area">
+                <div class="fixed-header-top">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-1 col-md-6 col-sm-6 col-xs-12">
+                                <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                                <div class="admin-logo logo-wrap-pro">
+                                    <a href="#"><img src="img/logo/log.png" alt="" />
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-1 col-sm-1 col-xs-12">
+                                <div class="header-top-menu">
+                                    <ul class="nav navbar-nav mai-top-nav">
+                                       
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                                <div class="header-right-info">
+                                    <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                        
+                                        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="indicator-nt"></span></a>
+                                            <div role="menu" class="notification-author dropdown-menu animated flipInX">
+                                                <div class="notification-single-top">
+                                                    <h1>Notifications</h1>
+                                                </div>
+                                                <ul class="notification-menu">
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="notification-icon">
+                                                                <span class="adminpro-icon adminpro-checked-pro"></span>
+                                                            </div>
+                                                            <div class="notification-content">
+                                                                <span class="notification-date">16 Sept</span>
+                                                                <h2>Advanda Cro</h2>
+                                                                <p>Please done this project as soon possible.</p>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="notification-icon">
+                                                                <span class="adminpro-icon adminpro-cloud-computing-down"></span>
+                                                            </div>
+                                                            <div class="notification-content">
+                                                                <span class="notification-date">16 Sept</span>
+                                                                <h2>Sulaiman din</h2>
+                                                                <p>Please done this project as soon possible.</p>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="notification-icon">
+                                                                <span class="adminpro-icon adminpro-shield"></span>
+                                                            </div>
+                                                            <div class="notification-content">
+                                                                <span class="notification-date">16 Sept</span>
+                                                                <h2>Victor Jara</h2>
+                                                                <p>Please done this project as soon possible.</p>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="notification-icon">
+                                                                <span class="adminpro-icon adminpro-analytics-arrow"></span>
+                                                            </div>
+                                                            <div class="notification-content">
+                                                                <span class="notification-date">16 Sept</span>
+                                                                <h2>Victor Jara</h2>
+                                                                <p>Please done this project as soon possible.</p>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <div class="notification-view">
+                                                    <a href="#">View All Notification</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                         <li class="nav-item">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                                                <span></span>
+                                                <span class="admin-name">Soham Roy's Account</span>
+                                                <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                                <span></span>
+                                            </a>
+                                            <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated flipInX">
+                                                <li><a href="#"><span><img src="https://img.icons8.com/fluent/48/000000/guest-male.png"/></span>&nbsp;&nbsp;My Account</a>
+                                                </li>
+                                                <li><a href="#"><span><i class="fa fa-cog" aria-hidden="true"></i></span>&nbsp;&nbsp;My Profile</a>
+                                                </li>
+                                                <li><a href="#"><span><i class="fa fa-usd" aria-hidden="true"></i></span>&nbsp;&nbsp;User Billing</a>
+                                                </li>
+                                                <li><a href="#"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span>&nbsp;&nbsp;Log Out</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header top area end-->
+            <!-- Breadcome start-->
+            <div class="breadcome-area mg-b-30 small-dn">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="breadcome-list shadow-reset">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="breadcome-heading">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <ul class="breadcome-menu">
+                                            <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                            </li>
+                                            <li><span class="bread-blod">Form Element</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Breadcome End-->
+            
+            <!-- Breadcome start-->
+            <div class="breadcome-area mg-b-30 des-none">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list map-mg-t-40-gl shadow-reset">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <div class="breadcome-heading">
+                                            <form role="search" class="">
+												<input type="text" placeholder="Search..." class="form-control">
+												<a href=""><i class="fa fa-search"></i></a>
+											</form>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <ul class="breadcome-menu">
+                                            <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                            </li>
+                                            <li><span class="bread-blod">Dashboard</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Breadcome End-->
+            <!-- Basic Form Start -->
+            <div class="basic-form-area mg-b-15">
+                <div class="container-fluid">
+                                       
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="sparkline16-list shadow-reset mg-t-30">
+                                <div class="sparkline16-hd">
+                                    <div class="main-sparkline16-hd">
+                                        <h1>Device Details</h1>
+                                        <div class="sparkline16-outline-icon">
+                                            <span class="sparkline16-collapse-link"><a href="/admin/addNew"><i class="fa fa-plus" aria-hidden="true"></i></a></span>
+                                            <span><i class="fa fa-wrench"></i></span>
+                                            <span class="sparkline16-collapse-close"><i class="fa fa-times"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sparkline16-graph">
+                                       <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                                            <thead>
+                                                <tr>
+                                                    <th data-field="state" data-checkbox="true"></th>
+                                                    <th data-field="ID">ID</th>
+                                                    <th data-field="GUID">GUID</th>
+                                                    <th data-field="MAC_ID">MAC ID</th>
+                                                    <th data-field="Device_Name">Device Name</th>
+                                                    <th data-field="Country">Country</th>
+                                                    <th data-field="State">State</th>
+                                                    <th data-field="Area">Area</th>
+                                                    <th data-field="Latitude">Latitude</th>
+                                                    <th data-field="Longitude">Longitude</th>
+                                                    <th data-field="Status">Status</th>
+                                                    <th data-field="Last_Updated_By">Last Updated By</th>
+                                                    <th data-field="Last Updated On">Last Updated On</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr th:each="ddata : ${devicedata}">
+                                                    <td></td>
+                                                    <td th:text="${ddata.id}" />
+                                                    <td th:text="${ddata.guid}" />
+                                                    <td th:text="${ddata.mac_Id}" />
+                                                    <td onclick="getRecent()" th:text="${ddata.device_Name}" />
+                                                    <td th:text="${ddata.country}" />
+                                                    <td th:text="${ddata.state}" />
+                                                    <td th:text="${ddata.area}" />
+                                                    <td th:text="${ddata.latitude}" />
+                                                    <td th:text="${ddata.longitude}" />
+                                                    <td th:text="${ddata.status}" />
+                                                    <td th:text="${ddata.lastupdatedby}" />
+                                                    <td th:text="${ddata.lastupdatedon}" />
+                                                    <td><button type="button" onclick="populateModalEdit(this)" class="btn btn-warning">Edit</button>&nbsp&nbsp<button type="button" onclick="deleteConfermation(this)" class="btn btn-danger">Delete</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>                                    
+                                 </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                </div>
+            </div>        
+    </div>
+    <!-- Footer Start-->
+    <div class="footer-copyright-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-copy-right">
+                        <p>Copyright &#169; 2018 Colorlib All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End-->
+    <!-- Chat Box Start-->
+    <div class="chat-list-wrap">
+        <div class="chat-list-adminpro">
+            <div class="chat-button">
+                <span data-toggle="collapse" data-target="#chat" class="chat-icon-link"><i class="fa fa-comments"></i></span>
+            </div>
+            <div id="chat" class="collapse chat-box-wrap shadow-reset animated zoomInLeft">
+                <div class="chat-main-list">
+                    <div class="chat-heading">
+                        <h2>Messanger</h2>
+                    </div>
+                    <div class="chat-content chat-scrollbar">
+                        <div class="author-chat">
+                            <h3>Monica <span class="chat-date">10:15 am</span></h3>
+                            <p>Hi, what you are doing and where are you gay?</p>
+                        </div>
+                        <div class="client-chat">
+                            <h3>Mamun <span class="chat-date">10:10 am</span></h3>
+                            <p>Now working in graphic design with coding and you?</p>
+                        </div>
+                        <div class="author-chat">
+                            <h3>Monica <span class="chat-date">10:05 am</span></h3>
+                            <p>Practice in programming</p>
+                        </div>
+                        <div class="client-chat">
+                            <h3>Mamun <span class="chat-date">10:02 am</span></h3>
+                            <p>That's good man! carry on...</p>
+                        </div>
+                    </div>
+                    <div class="chat-send">
+                        <input type="text" placeholder="Type..." />
+                        <span><button type="submit">Send</button></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    
+    <div id="WarningModalhdbgcl" class="modal modal-adminpro-general Customwidth-popup-WarningModal fade" style="height: 700px" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header header-color-modal bg-color-3">
+                    <h4 class="modal-title">BG Color Header Modal</h4>
+                    <div class="modal-close-area modal-close-df">
+                        <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group-inner">
+	                    <div class="row">
+	                        <div class="col-lg-1">
+	                             <label class="login2 pull-right pull-right-pro">Device_Name</label>
+	                         </div>
+	                         <div class="col-lg-12">
+	                             <input type="text" class="form-control" id="Device_Id" placeholder="Device Name" />
+	                          </div>
+	                        </div>
+	                        <div class="row">
+	                         <div class="col-lg-1">
+	                             <label class="login2 pull-right pull-right-pro">Country</label>
+	                         </div>
+	                         <div class="col-lg-12">
+	                             <select class="form-control" id="country">
+	
+								</select>
+	                         </div>
+	                         </div>
+	                         <div class="row">
+	                         <div class="col-lg-1">
+	                             <label class="login2 pull-right pull-right-pro">State</label>
+	                         </div>
+	                         <div class="col-lg-12">
+	                              <select class="form-control" id="states">
+	
+								  </select>
+	                         </div>
+	                     </div>
+	                     <div class="row">
+	                       <div class="col-lg-1">
+	                           <label class="login2 pull-right pull-right-pro">Area</label>
+	                       </div>
+	                       <div class="col-lg-12">
+	                           <select class="form-control" id="area-city">
+	
+						</select>
+	                       </div>
+	                   </div>
+	                   <div class="row">
+	                    <div class="col-lg-1">
+	                        <label class="login2 pull-right pull-right-pro">Status</label>
+	                    </div>
+	                    <div class="col-lg-12">
+	                        <select class="form-control" id="Status">
+									<option value="true">Active</option>
+									<option value="false">InActive</option>
+							</select>
+	                    </div>
+	                </div>
+               </div>
+              </div>
+              <div class="modal-footer">
+              	<button type="submit" id="cancl" class="btn btn-light">Cancel</button>
+                  <button type="submit" id="updatespecific" class="btn btn-primary">Update</button>
+              </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- /Modal -->
+    
+     <!-- jquery
+		============================================ -->
+    <script src="/js/vendor/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="/js/jquery.meanmenu.js"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- sticky JS
+		============================================ -->
+    <script src="/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="/js/jquery.scrollUp.min.js"></script>
+    <!-- modal JS
+		============================================ -->
+    <script src="js/modal-active.js"></script>
+    <!-- counterup JS
+		============================================ -->
+    <script src="/js/counterup/jquery.counterup.min.js"></script>
+    <script src="/js/counterup/waypoints.min.js"></script>
+    <!-- peity JS
+		============================================ -->
+    <script src="/js/peity/jquery.peity.min.js"></script>
+    <script src="/js/peity/peity-active.js"></script>
+    <!-- sparkline JS
+		============================================ -->
+    <script src="/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="/js/sparkline/sparkline-active.js"></script>
+    <!-- data table JS
+		============================================ -->
+    <script src="/js/data-table/bootstrap-table.js"></script>
+    <script src="/js/data-table/tableExport.js"></script>
+    <script src="/js/data-table/data-table-active.js"></script>
+    <script src="/js/data-table/bootstrap-table-editable.js"></script>
+    <script src="/js/data-table/bootstrap-editable.js"></script>
+    <script src="/js/data-table/bootstrap-table-resizable.js"></script>
+    <script src="/js/data-table/colResizable-1.5.source.js"></script>
+    <script src="/js/data-table/bootstrap-table-export.js"></script>
+    <!-- main JS
+		============================================ -->
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
