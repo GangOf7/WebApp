@@ -22,7 +22,7 @@ Flying Dutchman is designed to reflect all analytical data captured by Kalypso. 
 # <img src="https://img.icons8.com/ios-filled/54/000000/insert.png"/> Install Prerequisites:-
 &nbsp;&nbsp;JavaSE 11<br>
 &nbsp;&nbsp;Spring Boot<br>
-&nbsp;&nbsp;Maven
+&nbsp;&nbsp;Local Maven Installation
 
 # <img src="https://img.icons8.com/cotton/54/000000/smartphone-cpu.png"/> System Requirment:-
 &nbsp;&nbsp;RAM : 512MB<br>
@@ -30,8 +30,14 @@ Flying Dutchman is designed to reflect all analytical data captured by Kalypso. 
 &nbsp;&nbsp;Internet Connectivity
  
 # <img src="https://img.icons8.com/fluent/48/000000/code.png"/> Process To Build Webapp Locally:-
-#### (Redirect to the project and run these two commends in order to build the webapp)
+#### Clone the project and run these two commends from command line(windows), terminal(mac/linux) in order to build the webapp locally
 
+#### Step 1: Check Java and Maven Version
+```
+java -version
+mvn -v
+```
+#### Step 2: Install The Project
 ```
 mvn install
 java -jar ./target/javaspringapp-1.0-SNAPSHOT.jar
@@ -45,6 +51,7 @@ Admin: http://localhost:8080/admin/addNew
 
 ```
  
- 
+# <img src="https://img.icons8.com/dusk/54/000000/internet.png"/> Compatible Browser:-
+ -- Chrome 70.0+ <img src="https://img.icons8.com/fluent/15/000000/chrome.png"/>
 
 
