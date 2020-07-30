@@ -42,6 +42,13 @@ mvn -v
 mvn install
 java -jar ./target/javaspringapp-1.0-SNAPSHOT.jar
 ```
+# <img src="https://img.icons8.com/dusk/54/000000/internet.png"/> Compatible Browser:-
+ - <img src="https://img.icons8.com/fluent/15/000000/chrome.png"/>  Chrome 70.0+ 
+ - <img src="https://img.icons8.com/dusk/15/000000/internet-explorer.png"/>  Internet Explorer 10+  
+ - <img src="https://img.icons8.com/fluent/15/000000/ms-edge-new.png"/>  Edge 40+ 
+ - <img src="https://img.icons8.com/color/15/000000/firefox.png"/>  Firefox 72+
+ - <img src="https://img.icons8.com/color/15/000000/safari--v1.png"/>  Safari
+ 
 
 # <img src="https://img.icons8.com/pastel-glyph/64/000000/source-code--v3.png"/> Endpoints:-
 
@@ -51,11 +58,6 @@ Admin: http://localhost:8080/admin/addNew
 
 ```
  
-# <img src="https://img.icons8.com/dusk/54/000000/internet.png"/> Compatible Browser:-
- - <img src="https://img.icons8.com/fluent/15/000000/chrome.png"/>  Chrome 70.0+ 
- - <img src="https://img.icons8.com/dusk/15/000000/internet-explorer.png"/>  Internet Explorer 10+  
- - <img src="https://img.icons8.com/fluent/15/000000/ms-edge-new.png"/>  Edge 40+ 
- - <img src="https://img.icons8.com/color/15/000000/firefox.png"/>  Firefox 72+
- - <img src="https://img.icons8.com/color/15/000000/safari--v1.png"/>  Safari
+
 
 
