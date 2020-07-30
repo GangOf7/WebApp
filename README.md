@@ -1,5 +1,3 @@
- <p align="center"> <img src="https://img.icons8.com/doodle/200/000000/historic-ship.png"/> </p>
-# <p align="center"> Flying Dutchman </p>
 # Overview
 ![github-small](https://github.com/GangOf7/WebApp/blob/master/Screen%20record.gif?raw=true)
 
