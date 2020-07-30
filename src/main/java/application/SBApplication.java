@@ -15,18 +15,6 @@ public class SBApplication {
     public static void main(String[] args) {
         SpringApplication.run(SBApplication.class, args);
     }
-    
-    @Bean
-    public LocaleResolver localeResolver() {
-        SessionLocaleResolver slr = new SessionLocaleResolver();
-        slr.setDefaultLocale(Locale.US);
-        return slr;
-    }
-    
-    public ResourceBundleMessageSource messageSource() {
-    	ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-    	messageSource.setBasename("messages");
-    	return messageSource;
-    }
+   
 }
  
