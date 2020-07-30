@@ -30,12 +30,20 @@ Flying Dutchman is designed to reflect all analytical data captured by Kalypso. 
 &nbsp;&nbsp;Internet Connectivity
  
 # <img src="https://img.icons8.com/fluent/48/000000/code.png"/> Process To Build Webapp Locally:-
-(Redirect to the project and run these two commends in order to build the webapp)
+#### (Redirect to the project and run these two commends in order to build the webapp)
+
 ```
 mvn install
 java -jar ./target/javaspringapp-1.0-SNAPSHOT.jar
 ```
 
+# <img src="https://img.icons8.com/pastel-glyph/64/000000/source-code--v3.png"/> Endpoints:-
+
+```
+Home: http://localhost:8080/dutchman/dashboard
+Admin: http://localhost:8080/admin/addNew
+
+```
  
  
 
