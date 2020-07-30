@@ -21,10 +21,9 @@ Flying Dutchman is designed to reflect all analytical data captured by Kalypso. 
 
 # <img src="https://img.icons8.com/flat_round/64/000000/profit-chart-3d.png"/>Benefit Spectrum:-
 Proposed Solution can be a Game-Changer to Assure Success of In-Land Fishing battling the odds of Climate Change:
- - Meets Dual Mandates of Proactive Tracking & Automated Correction
-  - ###Promotes movement from reactive waterbody controls to proactive tracking and monitoring to detect water parameter anomalies early and take necessary corrective actions (Fresh water pumping, pH correction, Natural nutrients supply etc.)
+ - Meets Dual Mandates of Proactive Tracking & Automated Correction :- Promotes movement from reactive waterbody controls to proactive tracking and monitoring to detect water parameter anomalies early and take necessary corrective actions (Fresh water pumping, pH correction, Natural nutrients supply etc.)
+ - Launchpad of an Emerging Product :- Comes with a solid roadmap for productization with inclusion of additional features such as Predictive Analytics, Integration with Govt. authorities, Water Quality Management toolchain etc.
+ - Novel Technology Coupled with Scalability :- Prototyping done considering recent technology trends in cloud, mobility and IoT for offering an economically viable solution to the less-privileged communities
+ - Promotes Digital Inclusion & Community Building :- Intends to reach out to every fishing community at the furthest corners with inherent scalability – enabling inclusive technology and community building
 
- - Launchpad of an Emerging Product
- - Novel Technology Coupled with Scalability
- - Promotes Digital Inclusion & Community Building
 
