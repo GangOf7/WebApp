@@ -1,6 +1,6 @@
  <p align="center"> <img src="https://img.icons8.com/doodle/200/000000/historic-ship.png"/> </p>
-# <center> Flying Dutchman </center>
-## <img src="https://img.icons8.com/cotton/54/000000/wedding-gift.png"/> Overview
+# <p align="center"> Flying Dutchman </p>
+## <img src="https://img.icons8.com/cotton/54/000000/wedding-gift.png"/> Overview<br>
 ![github-small](https://github.com/GangOf7/WebApp/blob/master/Screen%20record.gif?raw=true)
 
 ## <img src="https://img.icons8.com/fluent/54/000000/youtube-play.png"/> Youtube Video Link
