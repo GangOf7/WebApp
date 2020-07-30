@@ -19,8 +19,15 @@ Eclipse, Visual Studio Code
 # <img src="https://img.icons8.com/nolan/54/overview-pages-2.png"/> Long Story Short:-
 Flying Dutchman is designed to reflect all analytical data captured by Kalypso. Portal is able to collect data from rest API services and returns data as per the filtration process by the user. This portal provides a glanced view of all of the available devices, it also provides the detailed view of all the devices in graphical as well as tabular format. On the other hand, we have a very efficient admin panel where we can add device, add new user and monitor their activity closely. This way the web portal brings user and admin under the same roof.
 
+# <img src="https://img.icons8.com/ios-filled/54/000000/insert.png"/> Install Prerequisites:-
+&nbsp;<pre>JavaSE 11</pre>
+&nbsp;<pre>Spring Boot</pre>
+&nbsp;<pre>Maven</pre>
 
-
+# <img src="https://img.icons8.com/cotton/54/000000/smartphone-cpu.png"/> System Requirment:-
+&nbsp;<pre>RAM : 512MB</pre>
+&nbsp;<pre>HDD : 500MB</pre>
+&nbsp;<pre>Internet Connectivity</pre>
  
 
  
