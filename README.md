@@ -16,5 +16,13 @@ Java, Spring Boot, HTML, CSS, Javascript, Jquery, Ajax
 # <img src="https://img.icons8.com/cotton/54/000000/profitable-idea.png"/> Design IDE:-
 Eclipse, Visual Studio Code
 
-# <img src="https://img.icons8.com/nolan/54/overview-pages-2.png"/>OverView:-
+# <img src="https://img.icons8.com/nolan/54/overview-pages-2.png"/>Long Story Short:-
 Flying Dutchman is designed to reflect all analytical data captured by Kalypso. Portal is able to collect data from rest API services and returns data as per the filtration process by the user. This portal provides a glanced view of all of the available devices, it also provides the detailed view of all the devices in graphical as well as tabular format. On the other hand, we have a very efficient admin panel where we can add device, add new user and monitor their activity closely. This way the web portal brings user and admin under the same roof.
+
+# <img src="https://img.icons8.com/flat_round/64/000000/profit-chart-3d.png"/>Benefit Spectrum:-
+Proposed Solution can be a Game-Changer to Assure Success of In-Land Fishing battling the odds of Climate Change:
+ - Meets Dual Mandates of Proactive Tracking & Automated Correction
+ - Launchpad of an Emerging Product
+ - Novel Technology Coupled with Scalability
+ - Promotes Digital Inclusion & Community Building
+
