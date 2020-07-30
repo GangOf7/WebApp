@@ -57,7 +57,7 @@ java -jar ./target/javaspringapp-1.0-SNAPSHOT.jar
  - <img src="https://img.icons8.com/color/15/000000/safari--v1.png"/>  Safari
  
 
-# <img src="https://img.icons8.com/fluent/48/000000/code.png"/> Endpoints:-
+# <img src="https://img.icons8.com/ultraviolet/40/000000/code.png"/> Endpoints:-
 
 ```
 Home: http://localhost:8080/dutchman/dashboard
