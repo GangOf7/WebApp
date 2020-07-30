@@ -31,8 +31,10 @@ Flying Dutchman is designed to reflect all analytical data captured by Kalypso. 
  
 # <img src="https://img.icons8.com/fluent/48/000000/code.png"/> Process To Build Webapp Locally:-
 (Redirect to the project and run these two commends in order to build the webapp)
-```mvn install```
-```java -jar ./target/javaspringapp-1.0-SNAPSHOT.jar```
+```
+mvn install
+java -jar ./target/javaspringapp-1.0-SNAPSHOT.jar
+```
 
  
  
