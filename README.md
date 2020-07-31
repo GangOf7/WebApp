@@ -11,25 +11,24 @@ https://youtu.be/CSEZSGFQ9V4
 Flying Dutchman is a web frontend that talks with Pirates bay and helps to visualize data captured by Kalypso IOT device.
 
 # <img src="https://img.icons8.com/doodle/54/000000/blockchain-technology.png"/> Technology:-
- - Java
- - Spring Boot
- - HTML
- - CSS
- - Javascript
- - Jquery
- - Ajax
+&nbsp;&nbsp;<img src="https://img.icons8.com/color/48/000000/java-coffee-cup-logo.png"/>  Java
+&nbsp;&nbsp;<img src="https://img.icons8.com/color/48/000000/spring-logo.png"/>  Spring Boot
+&nbsp;&nbsp;<img src="https://img.icons8.com/color/48/000000/html-5.png"/>  HTML
+&nbsp;&nbsp;<img src="https://img.icons8.com/color/48/000000/css3.png"/>  CSS
+&nbsp;&nbsp;<img src="https://img.icons8.com/color/48/000000/javascript.png"/>  Javascript
+&nbsp;&nbsp;<img src="https://img.icons8.com/ios/50/000000/jquery.png"/>  Jquery
 
 # <img src="https://img.icons8.com/cotton/54/000000/profitable-idea.png"/> Design IDE:-
- - Eclipse
- - Visual Studio Code
+&nbsp;&nbsp;<img src="https://img.icons8.com/officel/16/000000/java-eclipse.png"/>  Eclipse
+&nbsp;&nbsp;<img src="https://img.icons8.com/fluent/48/000000/visual-studio-code-2019.png"/>  Visual Studio Code
 
 # <img src="https://img.icons8.com/nolan/54/overview-pages-2.png"/> Long Story Short:-
 Flying Dutchman is designed to reflect all analytical data captured by Kalypso. Portal is able to collect data from rest API services and returns data as per the filtration process by the user. This portal provides a glanced view of all of the available devices, it also provides the detailed view of all the devices in graphical as well as tabular format. On the other hand, we have a very efficient admin panel where we can add device, add new user and monitor their activity closely. This way the web portal brings user and admin under the same roof.
 
 # <img src="https://img.icons8.com/ios-filled/54/000000/insert.png"/> Install Prerequisites:-
- - <img src="https://img.icons8.com/dusk/15/000000/java-coffee-cup-logo.png"/>  JavaSE 11
- - <img src="https://img.icons8.com/color/15/000000/spring-logo.png"/>  Spring Boot
- - <img src="https://img.icons8.com/color/15/000000/haiku.png"/>  Local Maven Installation
+&nbsp;&nbsp;<img src="https://img.icons8.com/dusk/15/000000/java-coffee-cup-logo.png"/>  JavaSE 11
+&nbsp;&nbsp;<img src="https://img.icons8.com/color/15/000000/spring-logo.png"/>  Spring Boot
+&nbsp;&nbsp;<img src="https://img.icons8.com/color/15/000000/haiku.png"/>  Local Maven Installation
 
 # <img src="https://img.icons8.com/cotton/54/000000/smartphone-cpu.png"/> System Requirment:-
  - RAM : 512MB
