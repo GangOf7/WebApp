@@ -49,73 +49,72 @@ mvn -v
 mvn install
 java -jar ./target/javaspringapp-1.0-SNAPSHOT.jar
 ```
-# <img src="https://img.icons8.com/cute-clipart/15/000000/bookmark-ribbon.png"/> External Libraries:
+# <img src="https://img.icons8.com/cute-clipart/54/000000/bookmark-ribbon.png"/> External Libraries:
 ```
-<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <!-- temp override to resolve CVE-2017-18640 -->
-        <dependency>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-            <version>1.26</version>
-        </dependency>
-		<!-- https://mvnrepository.com/artifact/org.json/json -->
-		<dependency>
-		    <groupId>org.json</groupId>
-		    <artifactId>json</artifactId>
-		    <version>20160810</version>
-		</dependency>
-		
-        <!--Monitoring -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.micrometer</groupId>
-            <artifactId>micrometer-registry-prometheus</artifactId>
-        </dependency>
-        <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-
-        <!-- Distributed tracing with OpenTracing -->
-        <dependency>
-            <groupId>io.opentracing.contrib</groupId>
-            <artifactId>opentracing-spring-jaeger-web-starter</artifactId>
-            <version>${opentracing-spring-jaeger-web-starter.version}</version>
-        </dependency>
-
-        <!-- For this template -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.ibm.cloud</groupId>
-            <artifactId>ibm-cloud-spring-boot-service-bind</artifactId>
-            <version>1.1.2</version>
-        </dependency>
-        <dependency>
-		    <groupId>org.apache.commons</groupId>
-		    <artifactId>commons-lang3</artifactId>
-		    <version>3.9</version>
-		</dependency>
-    </dependencies>
+<dependencies>
+   <!-- Core -->
+   <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+   </dependency>
+   <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+   </dependency>
+   <!-- temp override to resolve CVE-2017-18640 -->
+   <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+      <version>1.26</version>
+   </dependency>
+   <!-- https://mvnrepository.com/artifact/org.json/json -->
+   <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20160810</version>
+   </dependency>
+   <!--Monitoring -->
+   <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+   </dependency>
+   <dependency>
+      <groupId>io.micrometer</groupId>
+      <artifactId>micrometer-registry-prometheus</artifactId>
+   </dependency>
+   <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <scope>runtime</scope>
+      <optional>true</optional>
+   </dependency>
+   <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
+   </dependency>
+   <!-- Distributed tracing with OpenTracing -->
+   <dependency>
+      <groupId>io.opentracing.contrib</groupId>
+      <artifactId>opentracing-spring-jaeger-web-starter</artifactId>
+      <version>${opentracing-spring-jaeger-web-starter.version}</version>
+   </dependency>
+   <!-- For this template -->
+   <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+   </dependency>
+   <dependency>
+      <groupId>com.ibm.cloud</groupId>
+      <artifactId>ibm-cloud-spring-boot-service-bind</artifactId>
+      <version>1.1.2</version>
+   </dependency>
+   <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.9</version>
+   </dependency>
+</dependencies>
 ```
 
 # <img src="https://img.icons8.com/dusk/54/000000/internet.png"/> Compatible Browser:-
