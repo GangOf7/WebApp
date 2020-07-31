@@ -5,7 +5,7 @@
 ![github-small](https://github.com/GangOf7/WebApp/blob/master/Screen%20record.gif?raw=true)
 
 # <img src="https://img.icons8.com/fluent/54/000000/youtube-play.png"/> Youtube Video Link
-https://youtu.be/CSEZSGFQ9V4
+&nbsp;&nbsp;<img src="https://img.icons8.com/metro/26/000000/long-arrow-right.png"/>  https://youtu.be/CSEZSGFQ9V4
 
 # <img src="https://img.icons8.com/cute-clipart/54/000000/application-shield.png"/> Web Application - Visualization 
 Flying Dutchman is a web frontend that talks with Pirates bay and helps to visualize data captured by Kalypso IOT device.
