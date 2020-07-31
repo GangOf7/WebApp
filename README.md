@@ -8,7 +8,7 @@
 &nbsp;&nbsp;<img src="https://img.icons8.com/metro/26/000000/long-arrow-right.png"/>  https://youtu.be/CSEZSGFQ9V4
 
 # <img src="https://img.icons8.com/cute-clipart/54/000000/application-shield.png"/> Web Application - Visualization 
-Flying Dutchman is a web frontend that talks with Pirates bay and helps to visualize data captured by Kalypso IOT device.
+Flying Dutchman visualizes the status of every installed devices & provides statistical data for monitoring and research purpose. 
 
 # <img src="https://img.icons8.com/doodle/54/000000/blockchain-technology.png"/> Technology:-
 &nbsp;&nbsp;<img src="https://img.icons8.com/color/15/000000/java-coffee-cup-logo.png"/>  Java <br>
@@ -23,7 +23,7 @@ Flying Dutchman is a web frontend that talks with Pirates bay and helps to visua
 &nbsp;&nbsp;<img src="https://img.icons8.com/fluent/15/000000/visual-studio-code-2019.png"/>  Visual Studio Code
 
 # <img src="https://img.icons8.com/nolan/54/overview-pages-2.png"/> Long Story Short:-
-Flying Dutchman is designed to reflect all analytical data captured by Kalypso. Portal is able to collect data from rest API services and returns data as per the filtration process by the user. This portal provides a glanced view of all of the available devices, it also provides the detailed view of all the devices in graphical as well as tabular format. On the other hand, we have a very efficient admin panel where we can add device, add new user and monitor their activity closely. This way the web portal brings user and admin under the same roof.
+Flying Dutchman is designed to reflect all analytical data captured by sensors. Portal is able to collects data and returns data as per the filtration process need by the user. This portal provides a glanced view of all of the available devices, and also provides the detailed view of all the devices in graphical as well as tabular format. On the other hand, we have a very efficient admin panel where admin can register a new device, add new user and monitor their activity closely. This way the web portal brings user and admin under the same roof.
 
 # <img src="https://img.icons8.com/ios-filled/54/000000/insert.png"/> Install Prerequisites:-
 &nbsp;&nbsp;<img src="https://img.icons8.com/dusk/15/000000/java-coffee-cup-logo.png"/>  JavaSE 11 <br>
